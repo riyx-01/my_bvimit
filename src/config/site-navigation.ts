@@ -145,7 +145,7 @@ export const institutionalHeaderActionLinks = [
 
 export const institutionalVirtualTourLink = virtualTourLink;
 
-export const primaryNavigationItems = [
+export const primaryNavigationItems: readonly PrimaryNavigationItem[] = [
   {
     label: "Home",
     href: "/",
@@ -291,7 +291,7 @@ export const primaryNavigationItems = [
       },
     ],
   },
-] satisfies readonly PrimaryNavigationItem[];
+];
 
 export const navigationCallToAction = {
   desktop: { label: "Apply", href: "/courses/mca" },
