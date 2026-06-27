@@ -144,7 +144,9 @@
   .dark body {
     background-color: #1A202C !important;
   }
-  .dark .bg-background:not(body) {
+  .dark section.bg-background,
+  .dark main.bg-background,
+  .dark div.bg-background:not([class*="sticky"]):not([class*="header"]):not([class*="footer"]):not([class*="nav"]) {
     background-color: transparent !important;
   }
   h1, h2, h3, h4, h5, h6 {

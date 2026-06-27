@@ -54,6 +54,9 @@ public/assets/documents/
 # Explicitly ALLOW ONLY new website images
 
 
+
+# Force include the OBC Scholarship PDF (critical for pages)
+
 # Automatically ignored large assets (>15MB)
 public/images/events/ganeshpooja.png
 public/pdf/Aicte approval Letter All.pdf
@@ -72,6 +75,3 @@ public/pdf/Placement Brochure 19-20.pdf
 public/pdf/STUDENT_HANDBOOK 2017-2018.pdf
 public/pdf/STUDENT_HANDBOOK 2018-2019.pdf
 public/pdf/tech_mag18-19.pdf
-
-# Force include the OBC Scholarship PDF (critical for pages)
-!public/pdf/OBC VJNT SBC GR.pdf
