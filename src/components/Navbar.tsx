@@ -46,9 +46,9 @@ export default function Navbar() {
     >
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <div className="hidden md:flex items-center space-x-4 lg:space-x-8">
+          <div className="hidden xl:flex items-center space-x-1 2xl:space-x-3 flex-wrap justify-center flex-1">
             {primaryNavigationItems.map((item) => {
-              if (item.children?.length) {
+              if (item.children?.length || item.groups?.length) {
                 return (
                   <div
                     key={item.label}
@@ -57,7 +57,7 @@ export default function Navbar() {
                     onMouseLeave={() => setActiveDropdown(null)}
                     ref={activeDropdown === item.label ? dropdownRef : null}
                   >
-                    <button className="flex items-center gap-1 text-foreground/70 hover:text-primary font-bold text-xs uppercase tracking-widest px-3 py-2 rounded-md transition-all duration-200">
+                    <button className="flex items-center gap-1 text-foreground/70 hover:text-primary font-bold text-[10px] 2xl:text-xs uppercase tracking-widest px-1.5 py-2 rounded-md transition-all duration-200">
                       {item.label}
                       <ChevronDown
                         className={`w-3.5 h-3.5 transition-transform duration-300 ${
@@ -75,6 +75,8 @@ export default function Navbar() {
                           className={`absolute top-full mt-0 bg-popover text-popover-foreground rounded-b-2xl shadow-2xl border border-border p-4 ${
                             item.menuVariant === "mega"
                               ? "left-0 w-[600px]"
+                              : item.menuVariant === "more"
+                              ? "right-0 w-[900px]"
                               : "left-0 min-w-[260px]"
                           }`}
                         >
@@ -82,26 +84,55 @@ export default function Navbar() {
                             className={
                               item.menuVariant === "mega"
                                 ? "grid grid-cols-2 gap-4"
+                                : item.menuVariant === "more"
+                                ? "grid grid-cols-4 gap-6"
                                 : "flex flex-col gap-1"
                             }
                           >
-                            {item.children.map((child) => (
-                              <Link
-                                href={child.href}
-                                key={child.label}
-                                onClick={() => setActiveDropdown(null)}
-                                className="group/drop flex items-center gap-3 p-2.5 rounded-xl hover:bg-primary/5 transition-all"
-                              >
-                                <div className="p-2 rounded-lg bg-primary/10 text-primary group-hover/drop:bg-primary group-hover/drop:text-white transition-colors">
-                                  <child.icon className="w-4 h-4" />
+                            {item.groups ? (
+                              item.groups.map((group) => (
+                                <div key={group.label} className="flex flex-col gap-2">
+                                  <h3 className="text-xs font-black uppercase text-primary border-b border-border/50 pb-2 mb-2">{group.label}</h3>
+                                  <div className="flex flex-col gap-1">
+                                    {group.links.map((child) => (
+                                      <Link
+                                        href={child.href}
+                                        key={child.label}
+                                        onClick={() => setActiveDropdown(null)}
+                                        className="group/drop flex items-center gap-2 p-2 rounded-xl hover:bg-primary/5 transition-all"
+                                      >
+                                        <div className="p-1.5 rounded-lg bg-primary/10 text-primary group-hover/drop:bg-primary group-hover/drop:text-white transition-colors">
+                                          <child.icon className="w-3.5 h-3.5" />
+                                        </div>
+                                        <div>
+                                          <h4 className="font-bold text-[10px] uppercase tracking-wide text-foreground group-hover/drop:text-primary">
+                                            {child.label}
+                                          </h4>
+                                        </div>
+                                      </Link>
+                                    ))}
+                                  </div>
                                 </div>
-                                <div>
-                                  <h4 className="font-bold text-xs uppercase tracking-wide text-foreground group-hover/drop:text-primary">
-                                    {child.label}
-                                  </h4>
-                                </div>
-                              </Link>
-                            ))}
+                              ))
+                            ) : (
+                              item.children?.map((child) => (
+                                <Link
+                                  href={child.href}
+                                  key={child.label}
+                                  onClick={() => setActiveDropdown(null)}
+                                  className="group/drop flex items-center gap-3 p-2.5 rounded-xl hover:bg-primary/5 transition-all"
+                                >
+                                  <div className="p-2 rounded-lg bg-primary/10 text-primary group-hover/drop:bg-primary group-hover/drop:text-white transition-colors">
+                                    <child.icon className="w-4 h-4" />
+                                  </div>
+                                  <div>
+                                    <h4 className="font-bold text-xs uppercase tracking-wide text-foreground group-hover/drop:text-primary">
+                                      {child.label}
+                                    </h4>
+                                  </div>
+                                </Link>
+                              ))
+                            )}
                           </div>
                         </motion.div>
                       ) : null}
@@ -114,7 +145,7 @@ export default function Navbar() {
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="text-foreground/70 hover:text-primary font-bold text-xs uppercase tracking-widest px-3 py-2 rounded-md transition-all duration-200 flex items-center justify-center"
+                  className="text-foreground/70 hover:text-primary font-bold text-[10px] 2xl:text-xs uppercase tracking-widest px-1.5 py-2 rounded-md transition-all duration-200 flex items-center justify-center"
                 >
                   {item.icon ? <item.icon className="w-5 h-5" /> : item.label}
                 </Link>
@@ -122,7 +153,7 @@ export default function Navbar() {
             })}
           </div>
 
-          <div className="hidden md:flex items-center gap-6">
+          <div className="hidden xl:flex items-center gap-3">
             {mounted ? (
               <button
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
@@ -145,7 +176,7 @@ export default function Navbar() {
             </Button>
           </div>
 
-          <div className="md:hidden flex items-center justify-between w-full">
+          <div className="xl:hidden flex items-center justify-between w-full">
             <Link
               href={siteBranding.homeHref}
               className="flex items-center gap-2"
@@ -199,11 +230,11 @@ export default function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="md:hidden border-t border-border bg-background/95 overflow-hidden backdrop-blur-md"
+            className="xl:hidden border-t border-border bg-background/95 overflow-hidden backdrop-blur-md"
           >
             <div className="max-h-[70vh] overflow-y-auto px-4 pt-2 pb-6 flex flex-col space-y-1 mt-2">
               {primaryNavigationItems.map((item) => {
-                if (item.children?.length) {
+                if (item.children?.length || item.groups?.length) {
                   return (
                     <div key={item.label} className="flex flex-col">
                       <button
@@ -231,29 +262,57 @@ export default function Navbar() {
                           >
                             <div
                               className={
-                                item.menuVariant === "mega"
-                                  ? "grid grid-cols-1 gap-1 p-2"
+                                item.menuVariant === "mega" || item.menuVariant === "more"
+                                  ? "grid grid-cols-1 gap-4 p-4"
                                   : "flex flex-col p-2"
                               }
                             >
-                              {item.children.map((child) => (
-                                <Link
-                                  key={child.label}
-                                  href={child.href}
-                                  onClick={() => {
-                                    setActiveDropdown(null);
-                                    setIsOpen(false);
-                                  }}
-                                  className="flex items-center gap-3 p-3 hover:bg-muted transition-colors rounded-lg"
-                                >
-                                  <div className="p-1.5 rounded-md shadow-sm bg-background text-primary border border-border">
-                                    <child.icon className="w-4 h-4" />
+                              {item.groups ? (
+                                item.groups.map((group) => (
+                                  <div key={group.label} className="flex flex-col gap-2">
+                                    <h3 className="text-sm font-black uppercase text-primary border-b border-border/50 pb-2 mb-1">{group.label}</h3>
+                                    <div className="flex flex-col gap-1">
+                                      {group.links.map((child) => (
+                                        <Link
+                                          key={child.label}
+                                          href={child.href}
+                                          onClick={() => {
+                                            setActiveDropdown(null);
+                                            setIsOpen(false);
+                                          }}
+                                          className="flex items-center gap-3 p-2 hover:bg-muted transition-colors rounded-lg"
+                                        >
+                                          <div className="p-1.5 rounded-md shadow-sm bg-background text-primary border border-border">
+                                            <child.icon className="w-4 h-4" />
+                                          </div>
+                                          <div className="text-sm font-semibold text-foreground">
+                                            {child.label}
+                                          </div>
+                                        </Link>
+                                      ))}
+                                    </div>
                                   </div>
-                                  <div className="text-sm font-semibold text-foreground">
-                                    {child.label}
-                                  </div>
-                                </Link>
-                              ))}
+                                ))
+                              ) : (
+                                item.children?.map((child) => (
+                                  <Link
+                                    key={child.label}
+                                    href={child.href}
+                                    onClick={() => {
+                                      setActiveDropdown(null);
+                                      setIsOpen(false);
+                                    }}
+                                    className="flex items-center gap-3 p-3 hover:bg-muted transition-colors rounded-lg"
+                                  >
+                                    <div className="p-1.5 rounded-md shadow-sm bg-background text-primary border border-border">
+                                      <child.icon className="w-4 h-4" />
+                                    </div>
+                                    <div className="text-sm font-semibold text-foreground">
+                                      {child.label}
+                                    </div>
+                                  </Link>
+                                ))
+                              )}
                             </div>
                           </motion.div>
                         ) : null}

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BVIMIT Mumbai</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "surface-dim": "#dcd9da",
+                        "surface": "#fcf8f9",
+                        "on-secondary-fixed": "#271900",
+                        "on-secondary": "#ffffff",
+                        "surface-variant": "#e5e2e3",
+                        "secondary-fixed-dim": "#ffba2c",
+                        "surface-container-low": "#f6f3f4",
+                        "on-primary-fixed-variant": "#2d476f",
+                        "error": "#ba1a1a",
+                        "inverse-on-surface": "#f3f0f1",
+                        "surface-tint": "#465f88",
+                        "secondary-container": "#feb71a",
+                        "tertiary-container": "#1e2224",
+                        "surface-bright": "#fcf8f9",
+                        "on-primary-container": "#708ab5",
+                        "tertiary-fixed-dim": "#c3c7ca",
+                        "outline": "#74777f",
+                        "on-error": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed": "#001b3d",
+                        "surface-container-high": "#eae7e8",
+                        "inverse-surface": "#303031",
+                        "secondary": "#7d5700",
+                        "primary-fixed-dim": "#aec7f6",
+                        "tertiary-fixed": "#e0e3e6",
+                        "on-surface-variant": "#44474e",
+                        "on-error-container": "#93000a",
+                        "primary-fixed": "#d6e3ff",
+                        "outline-variant": "#c4c6cf",
+                        "on-tertiary-fixed-variant": "#43474a",
+                        "on-tertiary-container": "#85898c",
+                        "on-background": "#1b1b1c",
+                        "primary": "#000a1e",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#181c1e",
+                        "on-surface": "#1b1b1c",
+                        "background": "#fcf8f9",
+                        "surface-container": "#f0edee",
+                        "secondary-fixed": "#ffdeaa",
+                        "surface-container-highest": "#e5e2e3",
+                        "on-secondary-container": "#6b4b00",
+                        "tertiary": "#070b0d",
+                        "primary-container": "#002147",
+                        "on-secondary-fixed-variant": "#5f4100",
+                        "inverse-primary": "#aec7f6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "stack-lg": "32px",
+                        "gutter": "24px",
+                        "margin-mobile": "16px",
+                        "section-gap": "80px",
+                        "stack-sm": "8px",
+                        "container-max": "1280px",
+                        "stack-md": "16px",
+                        "unit": "8px",
+                        "margin-desktop": "40px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "label-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased selection:bg-secondary selection:text-on-secondary overflow-x-hidden">
+<!-- Top Navigation -->
+<header class="bg-surface dark:bg-primary docked full-width top-0 border-b border-outline-variant dark:border-outline shadow-sm dark:shadow-none z-50 sticky">
+<!-- Utility Nav -->
+<div class="bg-surface-container-low hidden md:block border-b border-outline-variant">
+<div class="max-w-container-max mx-auto px-margin-desktop h-10 flex justify-end items-center gap-6">
+<nav class="flex gap-4">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Students</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Alumni</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Media</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Career</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Events</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Tenders</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Contact</a>
+</nav>
+</div>
+</div>
+<!-- Main Nav -->
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto h-20">
+<div class="flex items-center gap-2">
+<span class="font-display-lg text-display-lg font-bold text-primary dark:text-on-primary text-3xl tracking-tight">BVIMIT Mumbai</span>
+</div>
+<!-- Desktop Nav Links -->
+<nav class="hidden md:flex items-center gap-8 h-full">
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-on-surface hover:text-secondary transition-colors h-full flex items-center" href="#">Placements</a>
+<a class="font-label-md text-label-md text-secondary dark:text-secondary-fixed border-b-2 border-secondary font-bold pb-1 h-full flex items-center relative top-[2px]" href="#">Courses</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-on-surface hover:text-secondary transition-colors h-full flex items-center" href="#">Research</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-on-surface hover:text-secondary transition-colors h-full flex items-center" href="#">Campus</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-on-surface hover:text-secondary transition-colors h-full flex items-center" href="#">Transparency</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-on-surface hover:text-secondary transition-colors h-full flex items-center" href="#">Faculty</a>
+</nav>
+<div class="hidden md:flex items-center gap-4">
+<div class="flex gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined cursor-pointer hover:text-secondary transition-colors" data-icon="school">school</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-secondary transition-colors" data-icon="language">language</span>
+</div>
+<button class="font-label-md text-label-md border border-primary text-primary px-4 py-2 rounded hover:bg-surface-container-low transition-colors">Login</button>
+<button class="font-label-md text-label-md bg-secondary text-on-secondary px-6 py-2 rounded hover:bg-secondary-container hover:text-on-secondary-container transition-colors shadow-sm">Apply Now</button>
+</div>
+<!-- Mobile Menu Toggle -->
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="relative w-full h-[600px] md:h-[700px] flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 bg-primary-container/60 z-10"></div>
+<img class="absolute inset-0 w-full h-full object-cover z-0" data-alt="Wide shot of a prestigious modern academic building, bright daylight, students walking across a lush green campus lawn, high resolution, architectural photography, vibrant blue sky." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmU8566gWDOMXcOCKKqMJ7tNpHzc43SIHdCiT3v5NQA4tCARdRzN2y1gCEj6ib495i1J3d0kggRwpnZGM5FOGjhjSj8-kYSr2gLYBQ8Zm9N6RtU9fGT7Nl5Brfld-uZcyPjYlq5rlZhg4P_jnX839e1DfaLCkwz3o4awVqHScAfAJ7Ty7PRUCiEymMjODe9Pv2RapQbSvZHho5z-KdB6BU35mJQpICdeJ9OkzQ-3XVXj7Hv_2aHp2QyXnQvnVv2FXNCS9on-1SSA5Z"/>
+<div class="relative z-20 text-center text-on-primary px-4 max-w-4xl mx-auto flex flex-col items-center gap-6">
+<h1 class="font-display-lg text-display-lg md:text-[64px] md:leading-[72px] text-white drop-shadow-lg">BVIMIT Mumbai<br/><span class="text-secondary-fixed">Celebrating Excellence</span></h1>
+<p class="font-body-lg text-body-lg text-inverse-on-surface max-w-2xl text-center">Shaping Future Leaders through rigorous academics, cutting-edge research, and a commitment to innovation.</p>
+<div class="flex gap-4 mt-4">
+<button class="bg-secondary text-on-secondary font-label-md text-label-md px-8 py-3 rounded shadow-lg hover:bg-opacity-90 transition-all">Explore Programs</button>
+<button class="border border-on-primary text-on-primary font-label-md text-label-md px-8 py-3 rounded hover:bg-white/10 transition-all backdrop-blur-sm">Campus Tour</button>
+</div>
+</div>
+</section>
+<!-- Welcome & Intro -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-section-gap grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+<div class="flex flex-col gap-6">
+<h2 class="font-headline-lg text-headline-lg text-primary">Welcome to BVIMIT</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">BVIMIT operates as an autonomous institution dedicated to fostering excellence in management and information technology. We offer a diverse range of programs designed to equip students with the skills needed in today's dynamic global landscape.</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Renowned for its excellence in teaching, collaborative research endeavors, and strong industry partnerships, BVIMIT stands as a beacon of quality education and innovation.</p>
+<div>
+<button class="bg-primary text-on-primary font-label-md text-label-md px-6 py-2 rounded mt-2 hover:bg-primary-container hover:text-white transition-colors">Read more</button>
+</div>
+</div>
+<div class="relative h-[300px] md:h-[400px] rounded-lg overflow-hidden shadow-md border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="Classic heritage archway entrance to an Indian university campus, students walking through, bright sunny day, architectural detail, warm inviting tones, high quality photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXeweOCrDWZ-J7ad4xJ8IyFQ0x7d3e-WaBj78qpdqgpx6949T4MQJz-qTGpezlwFwFwRud-6e9dPnnA92OFhJY6DW-NhecR52o6ydO7zFWHvRW79JiCf3fFSv_J2x0b0DSKsYLshVDnfrZbm6PxMCzdOoKly51CMPoCL210_PsjvR3M8uIepQyGG8HyeZabxcj0ub3MEIKdxkLWNjhSSPeKl6eE7rCl0JgeHEb7QIR3FzVvsl6J89fOj9hGW_ZT6I5hFCFmlyY_tm6"/>
+</div>
+</section>
+<!-- Latest Updates Grid -->
+<section class="bg-surface-container-low py-section-gap">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Research -->
+<div class="bg-surface border border-outline-variant p-8 rounded-lg hover:shadow-lg transition-shadow duration-300 flex flex-col gap-4">
+<div class="flex justify-between items-center border-b border-outline-variant pb-4">
+<h3 class="font-headline-md text-headline-md text-primary">Latest Research Publications</h3>
+<span class="material-symbols-outlined text-secondary" data-icon="article">article</span>
+</div>
+<div class="flex flex-col gap-6 mt-4">
+<div class="flex gap-4">
+<div class="w-2 h-2 rounded-full bg-secondary mt-2 flex-shrink-0"></div>
+<div>
+<h4 class="font-label-md text-label-md font-bold text-on-surface">Smart Manufacturing Technologies</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">Edited Book: "Handbook of Smart Manufacturing Technologies in the Digital Age", CRC Press.</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant italic mt-1">Authors: Dr. Sharma, Prof. Gaikwad</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-2 h-2 rounded-full bg-secondary mt-2 flex-shrink-0"></div>
+<div>
+<h4 class="font-label-md text-label-md font-bold text-on-surface">AI in Supply Chain</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">Research Paper published in IEEE Transactions.</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant italic mt-1">Authors: Dr. Iyer</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Awards -->
+<div class="bg-surface border border-outline-variant p-8 rounded-lg hover:shadow-lg transition-shadow duration-300 flex flex-col gap-4">
+<div class="flex justify-between items-center border-b border-outline-variant pb-4">
+<h3 class="font-headline-md text-headline-md text-primary">Awards and Recognition</h3>
+<span class="material-symbols-outlined text-secondary" data-icon="emoji_events">emoji_events</span>
+</div>
+<div class="flex flex-col gap-6 mt-4">
+<div class="flex gap-4">
+<div class="w-2 h-2 rounded-full bg-secondary mt-2 flex-shrink-0"></div>
+<div>
+<h4 class="font-label-md text-label-md font-bold text-on-surface">Prof. Pramila M. Chavan</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">Innovative &amp; Dedicated Educationalist Award</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">Specialization: Computer Engineering &amp; I.T.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-2 h-2 rounded-full bg-secondary mt-2 flex-shrink-0"></div>
+<div>
+<h4 class="font-label-md text-label-md font-bold text-on-surface">Student Chapter Excellence</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">Best Student Chapter Award by Computer Society of India.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Workshop Banner -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-section-gap">
+<div class="relative w-full h-[300px] rounded-xl overflow-hidden shadow-md flex items-center justify-center">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="A large group photo of academics and industry professionals standing together at a conference, smiling, professional attire, well-lit modern auditorium setting, banner in background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9FuQqzRfEOoP4AGvqtjcOmj1fYKiC4pcjnCkT2SqK4SeGXzr4LTO9TBzLoK3olj8R5xh39QdQR_JBmQyQIIP3eaXovUSeMbPu3qBqOvQQnYNanqf_z5x1nDIZ6oYpOQbb-J107-fbmk7J9lg4IxLG5RL-tVym52E4h1x4R60aQ8G4Vh-3XQZVMx2GQZD3tU3MJcx0wJVxaokQ40q8vxAG2MXH80elcY_ghoHaD2DrRXoWm6HFVkYt9yRPvBKe73IOkGhvCdlueaAk"/>
+<div class="absolute inset-0 bg-primary/70"></div>
+<div class="relative z-10 text-center text-white p-6 max-w-2xl">
+<span class="bg-secondary text-on-secondary font-label-sm text-label-sm px-3 py-1 rounded-full uppercase tracking-wider font-bold mb-4 inline-block">Highlight</span>
+<h2 class="font-headline-lg text-headline-lg mb-2">SIEMENS Centre of Excellence Workshop</h2>
+<p class="font-body-md text-body-md text-surface-container-low mb-6">Bridging the gap between academia and industry in digital manufacturing.</p>
+<button class="border border-secondary text-secondary-fixed hover:bg-secondary hover:text-on-secondary font-label-md text-label-md px-6 py-2 rounded transition-colors">View Gallery</button>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-primary dark:bg-surface-container-lowest text-on-primary dark:text-primary full-width bottom-0 mt-section-gap">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop py-section-gap max-w-container-max mx-auto">
+<!-- Brand & Info -->
+<div class="flex flex-col gap-4">
+<h2 class="font-headline-md text-headline-md font-bold text-secondary-fixed">BVIMIT Mumbai</h2>
+<p class="font-body-md text-body-md text-on-primary-container dark:text-on-surface-variant text-sm">Empowering minds, shaping the future of technology and management.</p>
+<div class="flex gap-4 mt-4">
+<a class="w-10 h-10 rounded-full bg-surface-tint/20 flex items-center justify-center hover:bg-secondary transition-colors text-white" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="share">share</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-surface-tint/20 flex items-center justify-center hover:bg-secondary transition-colors text-white" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="mail">mail</span>
+</a>
+</div>
+</div>
+<!-- Links Column 1 -->
+<div class="flex flex-col gap-4">
+<h3 class="font-label-md text-label-md font-bold uppercase tracking-wider text-surface-variant">Institute</h3>
+<nav class="flex flex-col gap-3">
+<a class="font-body-md text-body-md text-on-primary-container dark:text-on-surface-variant hover:text-secondary-container transition-all hover:border-l-2 hover:border-secondary-container hover:pl-2" href="#">About Us</a>
+<a class="font-body-md text-body-md text-on-primary-container dark:text-on-surface-variant hover:text-secondary-container transition-all hover:border-l-2 hover:border-secondary-container hover:pl-2" href="#">Academic Calendar</a>
+<a class="font-body-md text-body-md text-on-primary-container dark:text-on-surface-variant hover:text-secondary-container transition-all hover:border-l-2 hover:border-secondary-container hover:pl-2" href="#">Mandatory Disclosures</a>
+</nav>
+</div>
+<!-- Links Column 2 -->
+<div class="flex flex-col gap-4">
+<h3 class="font-label-md text-label-md font-bold uppercase tracking-wider text-surface-variant">Resources</h3>
+<nav class="flex flex-col gap-3">
+<a class="font-body-md text-body-md text-on-primary-container dark:text-on-surface-variant hover:text-secondary-container transition-all hover:border-l-2 hover:border-secondary-container hover:pl-2" href="#">Grievance Redressal</a>
+<a class="font-body-md text-body-md text-on-primary-container dark:text-on-surface-variant hover:text-secondary-container transition-all hover:border-l-2 hover:border-secondary-container hover:pl-2" href="#">AICTE Feedback</a>
+<a class="font-body-md text-body-md text-on-primary-container dark:text-on-surface-variant hover:text-secondary-container transition-all hover:border-l-2 hover:border-secondary-container hover:pl-2" href="#">Alumni Portal</a>
+</nav>
+</div>
+<!-- Contact -->
+<div class="flex flex-col gap-4">
+<h3 class="font-label-md text-label-md font-bold uppercase tracking-wider text-surface-variant">Contact</h3>
+<nav class="flex flex-col gap-3">
+<a class="font-body-md text-body-md text-on-primary-container dark:text-on-surface-variant hover:text-secondary-container transition-all hover:border-l-2 hover:border-secondary-container hover:pl-2" href="#">Privacy Policy</a>
+<span class="font-body-md text-body-md text-on-primary-container dark:text-on-surface-variant">Navi Mumbai, Maharashtra, India</span>
+</nav>
+</div>
+</div>
+<!-- Copyright -->
+<div class="border-t border-surface-tint/30">
+<div class="max-w-container-max mx-auto px-margin-desktop py-6 text-center">
+<p class="font-label-sm text-label-sm text-on-primary-container">© 2025 Bharati Vidyapeeth Institute of Management &amp; Information Technology. All Rights Reserved.</p>
+</div>
+</div>
+</footer>
+</body></html>
