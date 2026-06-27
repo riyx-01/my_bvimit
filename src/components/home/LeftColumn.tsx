@@ -42,9 +42,15 @@ export default function LeftColumn() {
             MCA LATEST <span className="ml-2">👉</span>
           </div>
           <div className="overflow-hidden flex-1 flex items-center bg-blue-50/50">
-            <marquee className="text-sm font-medium text-[#1e3a8a]">
-              First Year MCA Admission 2024-25 | AICTE Approval Letters
-            </marquee>
+            <motion.div 
+              animate={{ x: [ "100%", "-100%" ] }}
+              transition={{ repeat: Infinity, duration: 15, ease: "linear" }}
+              className="whitespace-nowrap w-full"
+            >
+              <span className="text-sm font-medium text-[#1e3a8a]">
+                First Year MCA Admission 2024-25 | AICTE Approval Letters
+              </span>
+            </motion.div>
           </div>
         </div>
         <div className="flex bg-card border rounded-full overflow-hidden shadow-sm">
@@ -52,9 +58,15 @@ export default function LeftColumn() {
             Placement Latest <span className="ml-2">👉</span>
           </div>
           <div className="overflow-hidden flex-1 flex items-center bg-blue-50/50">
-            <marquee className="text-sm font-medium text-orange-600">
-              Total 47 Companies Visited for Campus for Batch (2022-2024) | Average CTC 4.5 LPA
-            </marquee>
+            <motion.div 
+              animate={{ x: [ "100%", "-100%" ] }}
+              transition={{ repeat: Infinity, duration: 15, ease: "linear" }}
+              className="whitespace-nowrap w-full"
+            >
+              <span className="text-sm font-medium text-orange-600">
+                Total 47 Companies Visited for Campus for Batch (2022-2024) | Average CTC 4.5 LPA
+              </span>
+            </motion.div>
           </div>
         </div>
       </div>
