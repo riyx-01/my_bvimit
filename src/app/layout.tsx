@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "@/index.css";
 import { Providers } from "./providers";
+import "../../list_routes.js"; // list routes touch 2
 
 export const metadata: Metadata = {
     title: "BVIMIT",
