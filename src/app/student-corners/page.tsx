@@ -91,7 +91,7 @@ export default function StudentCornersPage() {
                   <div className="relative aspect-[3/4] w-full bg-muted">
                     <Image src={`/pdf/Thumbnails/${mag.thumb}`} alt={mag.title} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
                     <div className="absolute top-2 left-2 bg-black/60 backdrop-blur-sm px-3 py-1 rounded-full flex items-center gap-2">
-                      <Image src="/images/corner-pdf.png" alt="PDF" width={16} height={16} />
+                      <FileText className="w-4 h-4 text-white" />
                       <span className="text-xs font-bold text-white uppercase">PDF</span>
                     </div>
                   </div>
@@ -124,7 +124,7 @@ export default function StudentCornersPage() {
                   <div className="relative aspect-[3/4] w-full bg-muted">
                     <Image src={`/pdf/Thumbnails/${news.thumb}`} alt={news.title} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
                     <div className="absolute top-2 left-2 bg-black/60 backdrop-blur-sm px-3 py-1 rounded-full flex items-center gap-2">
-                      <Image src="/images/corner-pdf.png" alt="PDF" width={16} height={16} />
+                      <FileText className="w-4 h-4 text-white" />
                       <span className="text-xs font-bold text-white uppercase">PDF</span>
                     </div>
                   </div>

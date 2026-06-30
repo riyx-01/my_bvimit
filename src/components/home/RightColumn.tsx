@@ -16,7 +16,7 @@ export default function RightColumn() {
           </CardTitle>
         </CardHeader>
         <CardContent className="pt-6 space-y-4">
-          <form className="space-y-4">
+          <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
             <Input placeholder="Your Name" className="bg-muted/50 border-muted" />
             <Input placeholder="Your Email id" type="email" className="bg-muted/50 border-muted" />
             <Input placeholder="Your Year" className="bg-muted/50 border-muted" />
@@ -39,22 +39,22 @@ export default function RightColumn() {
         <CardContent className="p-0">
           <ul className="divide-y divide-border text-sm">
             <li>
-              <a href="#" className="block px-4 py-3 hover:bg-muted/50 text-[#1e3a8a] font-medium transition-colors">
+              <a href="#" onClick={(e) => e.preventDefault()} className="block px-4 py-3 hover:bg-muted/50 text-[#1e3a8a] font-medium transition-colors">
                 MCA LATEST
               </a>
             </li>
             <li>
-              <a href="#" className="block px-4 py-3 hover:bg-muted/50 text-[#1e3a8a] font-medium transition-colors">
+              <a href="#" onClick={(e) => e.preventDefault()} className="block px-4 py-3 hover:bg-muted/50 text-[#1e3a8a] font-medium transition-colors">
                 Alumni Meet 2024
               </a>
             </li>
             <li>
-              <a href="#" className="block px-4 py-3 hover:bg-muted/50 text-[#1e3a8a] font-medium transition-colors">
+              <a href="#" onClick={(e) => e.preventDefault()} className="block px-4 py-3 hover:bg-muted/50 text-[#1e3a8a] font-medium transition-colors">
                 Extention of Approval
               </a>
             </li>
             <li>
-              <a href="#" className="block px-4 py-3 hover:bg-muted/50 text-[#1e3a8a] font-medium transition-colors flex items-center">
+              <a href="#" onClick={(e) => e.preventDefault()} className="block px-4 py-3 hover:bg-muted/50 text-[#1e3a8a] font-medium transition-colors flex items-center">
                 <span className="text-orange-500 mr-2 text-xs">NEW</span> MCA 2024 103 and 104 Practical
               </a>
             </li>
@@ -64,7 +64,7 @@ export default function RightColumn() {
               </a>
             </li>
             <li>
-              <a href="#" className="block px-4 py-3 hover:bg-muted/50 text-[#1e3a8a] font-medium transition-colors">
+              <a href="#" onClick={(e) => e.preventDefault()} className="block px-4 py-3 hover:bg-muted/50 text-[#1e3a8a] font-medium transition-colors">
                 AICTE Approval Letters
               </a>
             </li>

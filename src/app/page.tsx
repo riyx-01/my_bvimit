@@ -1,5 +1,3 @@
-"use client";
-
 import SiteShell from "@/components/layout/SiteShell";
 import Landing from "@/views/Landing";
 

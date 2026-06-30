@@ -1,5 +1,4 @@
 /* DO NOT CHANGE */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 @custom-variant dark (&:is(.dark *));
@@ -99,7 +98,7 @@
   --popover: #1F2937;
   --popover-foreground: #F8F9FA;
 
-  --primary: #4f68ff; /* Lighter primary for dark mode visibility */
+  --primary: #829aff; /* Lighter primary for dark mode visibility */
   --primary-foreground: #ffffff;
   --secondary: #6A7BFF; /* Shade of primary for dark mode */
   --secondary-foreground: #ffffff;
@@ -567,7 +566,7 @@
   box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
-.legacy-content .col-md-3 .uk-inline.border img:not([src*="corner-pdf.png"]) {
+.legacy-content .col-md-3 .uk-inline.border img {
   width: 100%;
   height: 250px;
   object-fit: cover;

@@ -1,11 +1,11 @@
 export const documentAssetPaths = {
   feeStructureFirstYearAy2025_2026:
-    "/assets/documents/admissions/fee-structure-first-year-ay-2025-2026.pdf",
-  mcaBrochure2025: "/assets/documents/admissions/mca-brochure-2025.pdf",
+    "/pdf/Fee Structure 1 st Year Academic 2025-2026.pdf",
+  mcaBrochure2025: "/pdf/MCABrochure2025.pdf",
   scholarshipDocuments2025_2026:
-    "/assets/documents/admissions/scholarship-documents-2025-2026.pdf",
+    "/pdf/Documents for Scholarship.pdf",
   mcaSyllabusAc20_21Uom:
-    "/assets/documents/academics/mca-syllabus-ac20-21-uom.pdf",
+    "/pdf/MCAsyllabus AC20-21UOM.pdf",
 } as const;
 
 export const facultyAssetPaths = {

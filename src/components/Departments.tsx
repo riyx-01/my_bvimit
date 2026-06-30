@@ -37,7 +37,7 @@ export default function Departments() {
   };
 
   return (
-    <section id="departments" className="py-20 bg-white">
+    <section id="departments" className="py-20 bg-background text-foreground">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -46,10 +46,10 @@ export default function Departments() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Master of Computer Applications (MCA)
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+            Our Departments
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             BVIMIT's flagship MCA program delivers an industry-aligned curriculum with hands-on learning,
             strong fundamentals, internships, and placements—preparing you for roles in software development,
             data engineering, QA, DevOps, and more.
@@ -68,7 +68,7 @@ export default function Departments() {
           >
             {/* Gradient border effect */}
             <div className="p-[1px] rounded-3xl bg-primary/30">
-              <div className="bg-white rounded-3xl border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300">
+              <div className="bg-card text-card-foreground rounded-3xl border border-border shadow-sm hover:shadow-lg transition-all duration-300">
                 <div className="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-10 p-6 md:p-10">
                   {/* Left: Visual preview with floating badge */}
                   <div className="relative w-full md:w-[42%]">
@@ -97,16 +97,16 @@ export default function Departments() {
 
                   {/* Right: Content */}
                   <div className="w-full md:flex-1">
-                    <h3 className="text-2xl md:text-3xl font-bold text-gray-900 tracking-tight mb-3">
+                    <h3 className="text-2xl md:text-3xl font-bold text-foreground tracking-tight mb-3">
                       {dept.title}
                     </h3>
-                    <p className="text-gray-600 leading-relaxed mb-6">
+                    <p className="text-muted-foreground leading-relaxed mb-6">
                       {dept.description}
                     </p>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
                       {dept.features.map((feature, i) => (
-                        <div key={i} className="flex items-center text-sm text-gray-800">
+                        <div key={i} className="flex items-center text-sm text-foreground/80">
                           <span className="w-2 h-2 rounded-full bg-primary mr-3 group-hover:animate-pulse" />
                           {feature}
                         </div>

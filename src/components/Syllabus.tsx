@@ -7,7 +7,7 @@ export default function Syllabus() {
   const pdfUrl = documentAssetPaths.mcaSyllabusAc20_21Uom;
 
   return (
-    <section id="syllabus" className="py-20 bg-gray-50">
+    <section id="syllabus" className="py-20 bg-background text-foreground">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -16,10 +16,10 @@ export default function Syllabus() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            MCA Syllabus
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+            MCA Program Syllabus
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
             Official University of Mumbai MCA syllabus (Academic Year 2020–21).
             Review detailed semester-wise structure, core subjects, electives,
             assessment patterns, and credits. Opens in a new tab.
@@ -34,16 +34,16 @@ export default function Syllabus() {
           className="max-w-3xl mx-auto"
         >
           <div className="p-[1px] rounded-2xl bg-primary/30">
-            <div className="bg-white rounded-2xl border border-gray-100 p-6 md:p-8">
+            <div className="bg-card text-card-foreground rounded-2xl border border-border p-6 md:p-8 shadow-sm">
               <div className="flex items-start gap-4">
                 <div className="p-3 rounded-xl bg-primary/10 text-primary">
                   <FileText className="h-6 w-6" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                  <h3 className="text-2xl font-bold text-foreground mb-2">
                     University of Mumbai MCA Syllabus (PDF)
                   </h3>
-                  <p className="text-gray-600 mb-4">
+                  <p className="text-muted-foreground mb-4">
                     Includes program objectives, semester-wise course layout,
                     lab components, and examination scheme.
                   </p>

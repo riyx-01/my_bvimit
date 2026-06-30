@@ -102,7 +102,7 @@ export default function ScholarshipPage() {
                   <a 
                     href="/pdf/Scholarships.pdf" 
                     target="_blank" 
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center gap-3 bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground px-6 py-4 rounded-xl font-bold transition-all border border-primary/20 shadow-sm flex-1 justify-center"
                   >
                     <img src="/gifs/newred.gif" alt="New" className="w-8" />
@@ -111,7 +111,7 @@ export default function ScholarshipPage() {
                   <a 
                     href="/pdf/Documents for Scholarship.pdf" 
                     target="_blank" 
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center gap-3 bg-secondary/10 text-secondary hover:bg-secondary hover:text-secondary-foreground px-6 py-4 rounded-xl font-bold transition-all border border-secondary/20 shadow-sm flex-1 justify-center"
                   >
                     <img src="/gifs/newred.gif" alt="New" className="w-8" />
@@ -139,8 +139,8 @@ export default function ScholarshipPage() {
                 <a 
                   key={i}
                   href={`/pdf/${gr.file}`}
-                  target="_blank"
-                  rel="noreferrer"
+                  target="_blank" 
+                  rel="noopener noreferrer"
                   className="flex items-center justify-between p-5 bg-card rounded-xl border border-border hover:border-primary/50 hover:shadow-md transition-all group"
                 >
                   <span className="font-bold text-foreground group-hover:text-primary transition-colors">
