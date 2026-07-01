@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import "@/index.css";
 import { Providers } from "./providers";
-import "../../list_routes.js"; // list routes touch 2
+
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
     title: "BVIMIT",
@@ -20,7 +22,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en" suppressHydrationWarning data-scroll-behavior="smooth">
-            <body suppressHydrationWarning>
+            <body className={`${inter.variable} font-sans`} suppressHydrationWarning>
                 <Providers>{children}</Providers>
             </body>
         </html>

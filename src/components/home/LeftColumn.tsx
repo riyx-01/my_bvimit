@@ -102,10 +102,10 @@ export default function LeftColumn() {
       {/* Tabs Section */}
       <Tabs defaultValue="director" className="w-full">
         <TabsList className="w-full flex flex-wrap h-auto bg-primary/5 p-1 rounded-xl">
-          <TabsTrigger value="director" className="flex-1 text-xs md:text-sm py-2 data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm rounded-lg">Institute Director</TabsTrigger>
-          <TabsTrigger value="history" className="flex-1 text-xs md:text-sm py-2 data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm rounded-lg">History</TabsTrigger>
-          <TabsTrigger value="philosophy" className="flex-1 text-xs md:text-sm py-2 data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm rounded-lg">Philosophy</TabsTrigger>
-          <TabsTrigger value="student" className="flex-1 text-xs md:text-sm py-2 data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm rounded-lg">Student Council</TabsTrigger>
+          <TabsTrigger value="director" className="flex-1 text-xs md:text-sm py-2 data-[state=active]:bg-background data-[state=active]:text-primary data-[state=active]:shadow-sm rounded-lg">Institute Director</TabsTrigger>
+          <TabsTrigger value="history" className="flex-1 text-xs md:text-sm py-2 data-[state=active]:bg-background data-[state=active]:text-primary data-[state=active]:shadow-sm rounded-lg">History</TabsTrigger>
+          <TabsTrigger value="philosophy" className="flex-1 text-xs md:text-sm py-2 data-[state=active]:bg-background data-[state=active]:text-primary data-[state=active]:shadow-sm rounded-lg">Philosophy</TabsTrigger>
+          <TabsTrigger value="student" className="flex-1 text-xs md:text-sm py-2 data-[state=active]:bg-background data-[state=active]:text-primary data-[state=active]:shadow-sm rounded-lg">Student Council</TabsTrigger>
         </TabsList>
         <TabsContent value="director" className="mt-4 outline-none">
           <Card className="border-border/50 shadow-sm overflow-hidden">
@@ -122,7 +122,7 @@ export default function LeftColumn() {
                   "I am indeed happy to welcome you to MCA. Bharati Vidyapeeth's Institute of Management & Information Technology, Navi Mumbai. We aim to form youth with creative abilities to face the corporate world."
                 </p>
                 <div className="flex justify-end">
-                  <a href="#" className="text-xs font-bold text-primary hover:underline flex items-center">Read More <ChevronRight className="w-3 h-3 ml-1" /></a>
+                  <a href="#" onClick={(e) => e.preventDefault()} className="text-xs font-bold text-primary hover:underline flex items-center">Read More <ChevronRight className="w-3 h-3 ml-1" /></a>
                 </div>
               </div>
             </div>

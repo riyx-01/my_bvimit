@@ -6,13 +6,17 @@ import { ChevronDown, Menu, Moon, Sun, X, Search } from "lucide-react";
 import Link from "next/link";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
+import dynamic from "next/dynamic";
 import {
   navigationCallToAction,
   primaryNavigationItems,
 } from "@/config/site-navigation";
 
+const SearchDialog = dynamic(() => import("@/components/SearchDialog").then(mod => mod.SearchDialog), { ssr: false });
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -41,13 +45,13 @@ export default function Navbar() {
     <nav
       className="sticky top-0 left-0 right-0 z-[100] bg-background text-foreground border-b border-border/40 transition-colors duration-300 shadow-sm"
     >
-      <div className="max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-14">
           
 
 
           {/* Solid Navigation Menu */}
-          <div className="hidden xl:flex items-center space-x-2 2xl:space-x-4 flex-1 justify-start">
+          <div className="hidden xl:flex items-center gap-1 2xl:gap-3 flex-1 justify-start">
             {primaryNavigationItems.map((item) => {
               if (item.children?.length || item.groups?.length) {
                 return (
@@ -58,7 +62,7 @@ export default function Navbar() {
                     onMouseLeave={() => setActiveDropdown(null)}
                     ref={activeDropdown === item.label ? dropdownRef : null}
                   >
-                    <button className="relative flex items-center gap-1.5 text-foreground/90 hover:text-primary font-bold text-xs uppercase tracking-wider px-4 py-3 rounded-md transition-all duration-300 hover:bg-foreground/5 group">
+                    <button className="relative flex items-center gap-1 text-foreground/90 hover:text-primary font-bold text-[11px] 2xl:text-xs uppercase tracking-wide px-2 2xl:px-3 py-2 rounded-md transition-all duration-300 hover:bg-foreground/5 group">
                       {item.label}
                       <ChevronDown
                         className={`w-3.5 h-3.5 transition-transform duration-300 opacity-70 group-hover:opacity-100 ${
@@ -74,15 +78,19 @@ export default function Navbar() {
                           animate={{ opacity: 1, y: 0, scale: 1 }}
                           exit={{ opacity: 0, y: 10, scale: 0.98 }}
                           transition={{ duration: 0.2 }}
-                          className={`absolute top-full mt-2 bg-card text-card-foreground rounded-xl shadow-2xl border border-border p-6 z-[150] origin-top ${
-                            item.menuVariant === "mega" || item.menuVariant === "more"
-                              ? "left-1/2 -translate-x-1/2 w-[800px]"
-                              : "left-0 min-w-[300px]"
+                          className={`absolute top-full mt-2 bg-card text-card-foreground rounded-xl shadow-2xl border border-border p-6 z-[150] max-h-[calc(100vh-5rem)] overflow-y-auto scrollbar-thin ${
+                            item.menuVariant === "more"
+                              ? "right-0 origin-top-right w-[900px] max-w-[calc(100vw-2rem)]"
+                              : item.menuVariant === "mega"
+                              ? "left-1/2 -translate-x-1/2 origin-top w-[800px] max-w-[calc(100vw-2rem)]"
+                              : "left-0 origin-top-left min-w-[300px]"
                           }`}
                         >
                           <div
                             className={
-                              item.menuVariant === "mega" || item.menuVariant === "more"
+                              item.menuVariant === "more"
+                                ? "grid grid-cols-4 gap-6"
+                                : item.menuVariant === "mega"
                                 ? "grid grid-cols-3 gap-8"
                                 : "flex flex-col gap-2"
                             }
@@ -139,7 +147,7 @@ export default function Navbar() {
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="relative text-foreground/90 hover:text-primary font-bold text-xs uppercase tracking-wider px-4 py-3 rounded-md transition-all duration-300 hover:bg-foreground/5"
+                  className="relative flex items-center justify-center text-foreground/90 hover:text-primary font-bold text-[11px] 2xl:text-xs uppercase tracking-wide px-2 2xl:px-3 py-2 rounded-md transition-all duration-300 hover:bg-foreground/5"
                 >
                   {item.icon ? <item.icon className="w-4 h-4" /> : item.label}
                 </Link>
@@ -161,7 +169,10 @@ export default function Navbar() {
                 )}
               </button>
             ) : null}
-            <button className="p-2.5 rounded-full bg-foreground/5 hover:bg-foreground/10 text-foreground transition-all duration-200">
+            <button 
+              onClick={() => setSearchOpen(true)}
+              className="p-2.5 rounded-full bg-foreground/5 hover:bg-foreground/10 text-foreground transition-all duration-200"
+            >
                <Search className="w-4 h-4" />
             </button>
           </div>
@@ -175,6 +186,13 @@ export default function Navbar() {
                 {theme === "dark" ? <Moon className="w-4 h-4" /> : <Sun className="w-4 h-4" />}
               </button>
             ) : null}
+
+            <button
+              onClick={() => setSearchOpen(true)}
+              className="p-2 rounded-full bg-foreground/5 text-foreground hover:bg-foreground/10"
+            >
+              <Search className="w-4 h-4" />
+            </button>
 
             <button
               className="p-2 text-foreground bg-foreground/5 rounded-md hover:bg-foreground/10"
@@ -294,6 +312,7 @@ export default function Navbar() {
           </motion.div>
         ) : null}
       </AnimatePresence>
+      <SearchDialog open={searchOpen} setOpen={setSearchOpen} />
     </nav>
   );
 }

@@ -13,7 +13,7 @@ export default function InstitutionalHeader() {
   return (
     <>
       <div className="w-full bg-[#111827] text-white py-1.5 px-4 sm:px-6 lg:px-8 border-b border-white/5 transition-colors duration-300">
-        <div className="max-w-[1400px] mx-auto flex justify-between items-center text-[10px] md:text-[11px] font-black uppercase tracking-[0.15em]">
+        <div className="max-w-7xl mx-auto flex justify-between items-center text-[10px] md:text-[11px] font-black uppercase tracking-[0.15em]">
           <div className="flex gap-4 md:gap-6 overflow-x-auto scrollbar-none whitespace-nowrap">
             {institutionalHeaderUtilityLinks.map((link) => (
               <Link
@@ -46,7 +46,7 @@ export default function InstitutionalHeader() {
       </div>
 
       <header className="w-full bg-background pt-4 pb-2 md:py-4 px-4 sm:px-6 lg:px-8 border-b border-border/30 transition-colors duration-300 relative z-[60]">
-        <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row md:items-center justify-between gap-6">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-6">
           <Link
             href={siteBranding.homeHref}
             className="flex items-center gap-3 md:gap-6 group cursor-pointer transition-opacity w-full md:w-auto justify-center md:justify-start"

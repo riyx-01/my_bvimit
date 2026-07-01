@@ -3,8 +3,11 @@
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronLeft, ChevronRight, Target, Award, Rocket, Building2 } from "lucide-react";
 import { useEffect, useState } from "react";
-import AboutTabs from "@/components/landing/AboutTabs";
+import Image from "next/image";
+import dynamic from "next/dynamic";
 import visionMissionImg from "../../image.png";
+
+const AboutTabs = dynamic(() => import("@/components/landing/AboutTabs"), { ssr: true });
 
 const placementPartners = [
    { image: "https://harmless-tapir-303.convex.cloud/api/storage/8355377a-f356-4a02-83dd-1cb6b4038f23", text: "TCS" },
@@ -54,34 +57,34 @@ export default function Landing() {
          setActiveSlide((prev) => (prev + 1) % slides.length);
       }, 6000);
       return () => clearInterval(timer);
-   }, []);
+   }, [slides.length]);
 
    return (
       <main className="bg-background text-foreground overflow-x-hidden selection:bg-primary selection:text-white">
-
-         {/* Floating Announcements Ticker */}
-         <div className="absolute top-6 left-1/2 -translate-x-1/2 w-[90%] max-w-5xl z-50">
-            <div className="bg-primary text-white rounded-full px-6 py-2 shadow-2xl flex items-center overflow-hidden">
-               <span className="bg-white text-primary text-[10px] font-black tracking-widest uppercase px-3 py-1 rounded-full mr-4 shrink-0">Alerts</span>
-               <div className="flex flex-1 animate-marquee whitespace-nowrap gap-8 items-center text-xs font-bold tracking-widest uppercase opacity-90">
-                  <a href="/pdf/Provisnal Marit List 2025-26.pdf" className="hover:text-white transition-colors">Provisional Merit List 2025-26 Released</a>
-                  <span className="w-1 h-1 bg-white rounded-full"></span>
-                  <a href="/pdf/Ph.D.-Advt.-for-2025-26_BVIMIT (2).pdf" className="hover:text-white transition-colors">PhD Computer Application Advertisement</a>
-                  <span className="w-1 h-1 bg-white rounded-full"></span>
-                  <a href="/pdf/Anti Raggin Committee.pdf" className="hover:text-white transition-colors">Anti Ragging Committee Notification</a>
-               </div>
-            </div>
-         </div>
 
          {/* Asymmetric Hero Section */}
          <section className="relative min-h-[85vh] flex items-center pt-20 pb-10 bg-[#0B1120] text-white">
             <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_top_right,_rgba(0,8,136,0.3))_0%,_transparent_50%)] -z-10" />
             
-            <div className="max-w-[1500px] w-full mx-auto px-4 sm:px-6 lg:px-8">
+            {/* Floating Announcements Ticker */}
+            <div className="absolute top-6 left-1/2 -translate-x-1/2 w-[90%] max-w-5xl z-50">
+               <div className="bg-primary text-white rounded-full px-6 py-2 shadow-2xl flex items-center overflow-hidden">
+                  <span className="bg-white text-primary text-[10px] font-black tracking-widest uppercase px-3 py-1 rounded-full mr-4 shrink-0">Alerts</span>
+                  <div className="flex flex-1 animate-marquee whitespace-nowrap gap-8 items-center text-xs font-bold tracking-widest uppercase opacity-90">
+                     <a href="/pdf/Provisnal Marit List 2025-26.pdf" className="hover:text-white transition-colors">Provisional Merit List 2025-26 Released</a>
+                     <span className="w-1 h-1 bg-white rounded-full"></span>
+                     <a href="/pdf/Ph.D.-Advt.-for-2025-26_BVIMIT (2).pdf" className="hover:text-white transition-colors">PhD Computer Application Advertisement</a>
+                     <span className="w-1 h-1 bg-white rounded-full"></span>
+                     <a href="/pdf/Anti Raggin Committee.pdf" className="hover:text-white transition-colors">Anti Ragging Committee Notification</a>
+                  </div>
+               </div>
+            </div>
+
+            <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 mt-12 md:mt-0">
                <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 items-center">
                   
                   {/* Left Typography Block */}
-                  <div className="lg:col-span-7 pr-0 lg:pr-12">
+                  <div className="lg:col-span-7 pr-0 lg:pr-6 xl:pr-12">
                      <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, ease: "easeOut" }}>
                         <h5 className="text-sm font-bold uppercase tracking-[0.2em] text-[#ffcc00] mb-4">
                            ADMISSIONS OPEN FOR 2024-25
@@ -102,7 +105,7 @@ export default function Landing() {
                         initial={{ opacity: 0, y: 40 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-                        className="bg-card border-2 border-primary shadow-[20px_20px_0px_0px_rgba(0,8,136,0.15)] rounded-2xl p-10 lg:ml-10"
+                        className="bg-card border-2 border-primary shadow-xl xl:shadow-[20px_20px_0px_0px_rgba(0,8,136,0.15)] rounded-2xl p-6 lg:p-8 xl:p-10 lg:ml-4 xl:ml-10"
                      >
                         <div className="flex items-center gap-4 mb-8">
                            <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center text-white">
@@ -150,16 +153,18 @@ export default function Landing() {
 
 
          {/* Restructured: Full-Width Carousel and Tabs */}
-         <section className="py-20 relative max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8">
+         <section className="py-20 relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col gap-16">
 
                {/* Carousel Full Width */}
                <div className="w-full mx-auto relative">
                   <div className="relative w-full aspect-[21/9] md:aspect-[2.5/1] rounded-3xl overflow-hidden shadow-2xl border-4 border-white dark:border-background">
-                     <img
+                     <Image
                         src={slides[activeSlide].img}
                         alt={slides[activeSlide].title}
+                        fill
                         className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.5s] scale-100"
+                        priority
                      />
                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
                      <div className="absolute bottom-10 left-10 right-10 text-white">
@@ -190,7 +195,7 @@ export default function Landing() {
 
          {/* Restructured: Academic Excellence in Staggered Layout */}
          <section className="bg-foreground text-background py-24 relative">
-            <div className="max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
                <div className="text-center mb-16">
                   <h2 className="text-5xl md:text-7xl font-black tracking-tighter mb-6">Academic Excellence</h2>
@@ -203,7 +208,7 @@ export default function Landing() {
 
                   {/* Vision & Mission Banner */}
                   <div className="group relative overflow-hidden rounded-3xl bg-black border border-white/10 min-h-[450px] flex items-center">
-                     <img src={visionMissionImg.src} alt="Vision" className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-30 transition-opacity duration-700 group-hover:scale-105" />
+                     <Image src={visionMissionImg.src} alt="Vision" fill className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-30 transition-opacity duration-700 group-hover:scale-105" />
                      <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent" />
                      <div className="relative z-10 p-10 md:p-16 max-w-3xl">
                         <div className="w-16 h-16 bg-primary text-white flex items-center justify-center rounded-2xl mb-8 shadow-2xl">
@@ -220,7 +225,7 @@ export default function Landing() {
                   <div className="flex flex-col lg:flex-row gap-12">
 
                      {/* Placements Impact */}
-                     <div className="lg:w-1/3 bg-white text-foreground rounded-3xl p-10 flex flex-col justify-between border-b-8 border-primary shadow-2xl">
+                     <div className="lg:w-1/3 bg-card text-card-foreground rounded-3xl p-10 flex flex-col justify-between border-b-8 border-primary shadow-2xl">
                         <div>
                            <div className="flex justify-between items-start mb-12">
                               <div className="w-14 h-14 bg-primary/10 text-primary flex items-center justify-center rounded-2xl">
@@ -314,7 +319,7 @@ export default function Landing() {
                <div className="flex animate-marquee-fast whitespace-nowrap items-center py-4">
                   {[...placementPartners, ...placementPartners, ...placementPartners].map((partner, index) => (
                      <div key={index} className="mx-12 lg:mx-20 flex flex-col items-center justify-center min-w-[150px] md:min-w-[200px]">
-                        <img src={partner.image} alt={partner.text} className="h-14 lg:h-16 object-contain hover:scale-110 transition-transform duration-300" />
+                        <Image src={partner.image} alt={partner.text} width={150} height={64} className="h-14 lg:h-16 object-contain hover:scale-110 transition-transform duration-300" />
                      </div>
                   ))}
                </div>
