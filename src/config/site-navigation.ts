@@ -45,16 +45,10 @@ export interface PrimaryNavigationChildLink extends SiteLink {
   icon: LucideIcon;
 }
 
-export interface PrimaryNavigationGroup {
-  label: string;
-  links: readonly PrimaryNavigationChildLink[];
-}
-
 export interface PrimaryNavigationItem extends SiteLink {
   icon?: LucideIcon;
   children?: readonly PrimaryNavigationChildLink[];
-  groups?: readonly PrimaryNavigationGroup[];
-  menuVariant?: "standard" | "mega" | "more";
+  menuVariant?: "standard" | "mega";
 }
 
 export interface FooterLinkGroup {
@@ -145,7 +139,7 @@ export const institutionalHeaderActionLinks = [
 
 export const institutionalVirtualTourLink = virtualTourLink;
 
-export const primaryNavigationItems: readonly PrimaryNavigationItem[] = [
+export const primaryNavigationItems = [
   {
     label: "Home",
     href: "/",
@@ -167,15 +161,6 @@ export const primaryNavigationItems: readonly PrimaryNavigationItem[] = [
       { label: "MCA", href: "/courses/mca", icon: MonitorSmartphone },
       { label: "MCA FEE details", href: "/admissions/fees", icon: FileText },
       { label: "Phd", href: "/courses/phd", icon: GraduationCap },
-    ],
-  },
-  {
-    label: "MCA Syllabus",
-    href: "/courses/mca#syllabus",
-    children: [
-      { label: "MCA NEP2020 2nd Year syllabus", href: "/pdf/6.71N-MCA-Sem-III-IV.pdf", icon: Book },
-      { label: "MCA NEP2020 1st Year syllabus", href: "/pdf/6.19-N-Master-of-Computer-Applications-Sem-I-II.pdf", icon: Book },
-      { label: "MCA 1st & 2nd Year (w.e.f 20-21)", href: "/pdf/MCAsyllabus%20AC20-21UOM.pdf", icon: FileText },
     ],
   },
   {
@@ -213,18 +198,6 @@ export const primaryNavigationItems: readonly PrimaryNavigationItem[] = [
     ],
   },
   {
-    label: "Committee",
-    href: "/committees",
-    children: [
-      { label: "IQAC", href: "/compliance/iqac", icon: Users },
-      { label: "DAB", href: "/compliance/dab", icon: Users },
-      { label: "Anti Ragging Cell", href: "/pdf/Anti Raggin Committee.pdf", icon: ShieldCheck },
-      { label: "Grievance Committee", href: "/compliance/grievance-redressal", icon: Users },
-      { label: "College Development", href: "/pdf/Development_Comitee.pdf", icon: Building },
-      { label: "Governing Body", href: "/pdf/Governing Body.pdf", icon: Users },
-    ],
-  },
-  {
     label: "Faculty",
     href: "/faculty",
     children: [
@@ -233,65 +206,66 @@ export const primaryNavigationItems: readonly PrimaryNavigationItem[] = [
     ],
   },
   {
-    label: "More",
-    href: "#",
-    menuVariant: "more",
-    groups: [
-      {
-        label: "Student Corner",
-        links: [
-          { label: "ISTE Student Chapter", href: "/students/iste", icon: Users },
-          { label: "NPTEL Local Chapter", href: "/students/nptel", icon: Users },
-          { label: "Achievements", href: "/students/achievements", icon: Award },
-          { label: "Technical Magazine", href: "/students/technical-magazine", icon: FileText },
-          { label: "Newsletter Prabhat", href: "/students/newsletter", icon: Newspaper },
-          { label: "IMIT Dairies", href: "/students/imit-dairies", icon: Book },
-          { label: "Glimpses of BVIMIT", href: "/students/glimpses", icon: Image },
-          { label: "Student Handbook", href: "/students/handbook", icon: Book },
-        ],
-      },
-      {
-        label: "NIRF",
-        links: [
-          { label: "NIRF 2025", href: "/pdf/nirfbvimit2025.pdf", icon: Award },
-          { label: "NIRF 2024", href: "/pdf/bvimitnirf24.pdf", icon: Award },
-          { label: "NIRF 2023", href: "/pdf/BVIMITNIRF2023.pdf", icon: Award },
-        ],
-      },
-      {
-        label: "Events",
-        links: [
-          { label: "Seminars", href: "/events/seminars", icon: Users },
-          { label: "Workshops", href: "/events/workshops", icon: Briefcase },
-          { label: "FDPs", href: "/events/fdp", icon: Book },
-          { label: "Internal Hackathon SIH 2025 Report", href: "/pdf/Report.pdf", icon: Target },
-          { label: "ICET 2026 Report", href: "/pdf/ICET26final.pdf", icon: Globe },
-          { label: "ICET 2024 Report", href: "/pdf/ICET 2024-CONFERENCE REPORT.pdf", icon: Globe },
-          { label: "ICET-2022 Conference Proceedings", href: "/pdf/ICET-2022-Bharati Vidyapeeth’s Conference Proceedings.pdf", icon: Globe },
-          { label: "ICET 2022 Report", href: "/pdf/ICET 2022-CONFERENCE REPORT.pdf", icon: Globe },
-          { label: "National Conference 2020", href: "/pdf/NCIT2020-CONFERENE REPORT.pdf", icon: Globe },
-          { label: "National Conference 2017", href: "/research/ncit-2017", icon: Globe },
-          { label: "Activities", href: "/events/activities", icon: Star },
-          { label: "Sports", href: "/events/sports", icon: Target },
-          { label: "Eminence", href: "/events/eminence", icon: Award },
-          { label: "Manthan", href: "/events/manthan-2026", icon: Star },
-        ],
-      },
-      {
-        label: "ISR & Contact",
-        links: [
-          { label: "ISR", href: "/outreach/isr", icon: Users },
-          { label: "Swachh Bharat Abhiyan", href: "/outreach/swatch", icon: Star },
-          { label: "Covid 19 Awareness", href: "/outreach/covid-19", icon: Info },
-          { label: "Blood Donation", href: "/outreach/blood-donation", icon: Star },
-          { label: "Tree Plantation", href: "/outreach/tree-plantation", icon: Star },
-          { label: "Khusiyo Ki Pathshala", href: "/outreach/khushiyo-ki-pathshala", icon: Star },
-          { label: "Contact Us", href: "/contact", icon: Map },
-        ],
-      },
+    label: "Student Corner",
+    href: "/students",
+    children: [
+      { label: "ISTE Student Chapter", href: "/students/iste", icon: Users },
+      { label: "NPTEL Local Chapter", href: "/students/nptel", icon: Users },
+      { label: "Achievements", href: "/students/achievements", icon: Award },
+      { label: "Technical Magazine", href: "/students/technical-magazine", icon: FileText },
+      { label: "Newsletter Prabhat", href: "/students/newsletter", icon: Newspaper },
+      { label: "IMIT Dairies", href: "/students/imit-dairies", icon: Book },
+      { label: "Glimpses of BVIMIT", href: "/students/glimpses", icon: Image },
+      { label: "Student Handbook", href: "/students/handbook", icon: Book },
     ],
   },
-];
+  {
+    label: "NIRF",
+    href: "/nirf",
+    children: [
+      { label: "NIRF 2025", href: "/nirf/2025", icon: Award },
+      { label: "NIRF 2024", href: "/nirf/2024", icon: Award },
+      { label: "NIRF 2023", href: "/nirf/2023", icon: Award },
+    ],
+  },
+  {
+    label: "Events",
+    href: "/events",
+    menuVariant: "mega",
+    children: [
+      { label: "Seminars", href: "/events/seminars", icon: Users },
+      { label: "Workshops", href: "/events/workshops", icon: Briefcase },
+      { label: "FDPs", href: "/events/fdps", icon: Book },
+      { label: "Internal Hackathon SIH 2025 Report", href: "/events/internal-hackathon-sih-2025", icon: Target },
+      { label: "ICET 2026 Report", href: "/events/icet-2026", icon: Globe },
+      { label: "ICET 2024 Report", href: "/events/icet-2024", icon: Globe },
+      { label: "ICET-2022 Conference Proceedings", href: "/events/icet-2022-conference-proceedings", icon: Globe },
+      { label: "ICET 2022 Report", href: "/events/icet-2022", icon: Globe },
+      { label: "National Conference 2020", href: "/events/national-conference-2020", icon: Globe },
+      { label: "National Conference 2017", href: "/events/national-conference-2017", icon: Globe },
+      { label: "Activities", href: "/events/activities", icon: Star },
+      { label: "Sports", href: "/events/sports", icon: Target },
+      { label: "Eminence", href: "/events/eminence", icon: Award },
+      { label: "Manthan", href: "/events/manthan", icon: Star },
+    ],
+  },
+  {
+    label: "ISR",
+    href: "/isr",
+    children: [
+      { label: "ISR", href: "/isr", icon: Users },
+      { label: "Swachh Bharat Abhiyan", href: "/isr/swachh-bharat-abhiyan", icon: Star },
+      { label: "Covid 19 Awareness", href: "/isr/covid-19-awareness", icon: Info },
+      { label: "Blood Donation", href: "/isr/blood-donation", icon: Star },
+      { label: "Tree Plantation", href: "/isr/tree-plantation", icon: Star },
+      { label: "Khushiyo Ki Pathshala", href: "/isr/khushiyo-ki-pathshala", icon: Star },
+    ],
+  },
+  {
+    label: "Contact Us",
+    href: "/contact",
+  },
+] satisfies readonly PrimaryNavigationItem[];
 
 export const navigationCallToAction = {
   desktop: { label: "Apply", href: "/courses/mca" },

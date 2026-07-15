@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "@/index.css";
 import { Providers } from "./providers";
-
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
     title: "BVIMIT",
@@ -22,7 +19,10 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en" suppressHydrationWarning data-scroll-behavior="smooth">
-            <body className={`${inter.variable} font-sans`} suppressHydrationWarning>
+            <head>
+                <link rel="preconnect" href="https://fonts.cdnfonts.com" crossOrigin="anonymous" />
+            </head>
+            <body className="font-sans" suppressHydrationWarning>
                 <Providers>{children}</Providers>
             </body>
         </html>
