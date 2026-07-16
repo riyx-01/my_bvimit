@@ -1,44 +1,60 @@
+"use client";
+
 import { motion } from "framer-motion";
-import { TrendingUp, Award, Users, Building2 } from "lucide-react";
+import { useState, useEffect } from "react";
+import { TrendingUp, Award, Building2, FileText } from "lucide-react";
+import { Button } from "@/components/ui/button";
+
+function CountUp({ end, duration = 2, suffix = "" }: { end: number; duration?: number; suffix?: string }) {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    let start = 0;
+    const endValue = end;
+    if (start === endValue) return;
+
+    const totalMiliseconds = duration * 1000;
+    const incrementTime = Math.abs(Math.floor(totalMiliseconds / endValue));
+
+    const timer = setInterval(() => {
+      start += 1;
+      setCount(start);
+      if (start >= endValue) {
+        clearInterval(timer);
+      }
+    }, incrementTime);
+
+    return () => clearInterval(timer);
+  }, [end, duration]);
+
+  return <span>{count}{suffix}</span>;
+}
 
 export default function Placements() {
-  const topCompanies = [
-    { name: "Carwala.com", package: "9 LPA" },
-    { name: "Josh Technologies", package: "8.70 LPA" },
-    { name: "Zeus Learning", package: "7.5 LPA" },
-    { name: "Bank of America", package: "6.45 LPA" },
-    { name: "Princeton Blue", package: "6.25 LPA" },
-    { name: "BNP Paribas", package: "6 LPA" },
-    { name: "CRM Next", package: "4.5 LPA" },
-    { name: "Finovate", package: "4.5 LPA" },
-    { name: "V2S Technology", package: "4.20 LPA" },
-    { name: "IDBI Intech", package: "3.25-4.5 LPA" }
-  ];
-
   const stats = [
     {
-      icon: Building2,
-      number: "47+",
-      label: "Companies Visited",
-      description: "For Batch 2022-2024"
-    },
-    {
       icon: TrendingUp,
-      number: "9 LPA",
-      label: "Highest Package",
-      description: "Carwala.com"
+      number: 9,
+      suffix: " LPA",
+      label: "Highest Salary Package",
+      description: "Offered on-campus",
+      highlight: true
     },
     {
       icon: Award,
-      number: "4-4.5 LPA",
-      label: "Average CTC",
-      description: "Industry Standard"
+      number: 4.5,
+      suffix: " LPA",
+      label: "Average Salary Package",
+      description: "Offered on-campus",
+      highlight: false
     },
     {
-      icon: Users,
-      number: "50K",
-      label: "Highest Stipend",
-      description: "Per Month"
+      icon: Building2,
+      number: 47,
+      suffix: "+",
+      label: "Companies Visited",
+      description: "Active corporate partners",
+      highlight: false
     }
   ];
 
@@ -57,129 +73,119 @@ export default function Placements() {
   ];
 
   return (
-    <section id="placements" className="py-20 bg-background transition-colors duration-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
-          <div className="max-w-2xl">
+    <section id="placements" className="py-16 bg-background transition-colors duration-300">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Intro Block */}
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between mb-12 gap-8 border-b border-border/20 pb-8">
+          <div className="max-w-3xl">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="text-primary font-black tracking-[0.2em] uppercase text-xs mb-4"
+              className="text-primary font-black tracking-[0.2em] uppercase text-xs mb-3 flex items-center gap-2"
             >
-              Career & Placements
+              <span className="w-1.5 h-1.5 bg-primary rounded-full" />
+              Career Development & Placements
             </motion.div>
             <motion.h2 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-4xl md:text-5xl font-black text-foreground tracking-tight"
+              className="text-3xl md:text-4xl font-black text-foreground tracking-tight mb-4"
             >
-              Global Career <span className="text-primary italic">Outcomes</span>
+              Fostering Global <span className="text-primary italic font-serif">Outcomes</span>
             </motion.h2>
+            <p className="text-sm text-muted-foreground font-medium leading-relaxed max-w-2xl">
+              BVIMIT’s Career Development & Placement Cell operates as a dedicated interface with the IT industry, offering rigorous pre-placement preparation, internships, and dynamic recruiting drives to launch successful student careers.
+            </p>
           </div>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="text-muted-foreground font-medium text-lg max-w-md md:text-right"
-          >
-            Securing positions in world-class organizations through rigorous industry training.
-          </motion.p>
+          <div className="flex items-center gap-3 shrink-0">
+            <div className="inline-flex items-center gap-2.5 px-4 py-2 bg-[#FFCC00]/10 text-primary dark:text-[#FFD700] text-[10px] font-black uppercase tracking-[0.2em] rounded-md border border-[#FFCC00]/25 shadow-sm">
+              25 Years of Placement Excellence
+            </div>
+          </div>
         </div>
 
-        {/* Stats Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
-          {stats.map((stat, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="group bg-card p-8 rounded-3xl border border-border/50 hover:border-primary/50 transition-all duration-300"
-            >
-              <div className="mb-6 inline-block p-3 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-500">
-                <stat.icon className="h-6 w-6" />
-              </div>
-              <div className="text-4xl font-black text-foreground mb-1 tracking-tighter">{stat.number}</div>
-              <p className="text-xs font-black text-primary uppercase tracking-widest mb-3 opacity-60">{stat.label}</p>
-              <p className="text-sm text-muted-foreground font-bold">{stat.description}</p>
-            </motion.div>
-          ))}
+        {/* VJTI-Style Side-by-Side Statistics and Recruiter Network */}
+        <div className="mb-12">
+          <div className="inline-block relative mb-8">
+            <h3 className="text-2xl font-black text-foreground relative z-10 uppercase tracking-wider">Top Recruiters @ BVIMIT</h3>
+            <div className="absolute bottom-0 left-0 w-full h-1.5 bg-[#FFCC00]/40 -rotate-1 rounded-full z-0" />
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            {/* Left Column (lg:col-span-5): 3 key statistics grid */}
+            <div className="lg:col-span-5 flex flex-col gap-4">
+              {stats.map((stat, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: index * 0.05 }}
+                  viewport={{ once: true }}
+                  className={`p-5 rounded-lg border transition-all duration-300 flex flex-col justify-between h-36 bg-card border-border/40 ${
+                    stat.highlight ? "border-[#FFCC00] shadow-sm shadow-[#FFCC00]/5 ring-1 ring-[#FFCC00]/10" : "hover:border-primary/20 shadow-sm"
+                  }`}
+                >
+                  <div>
+                    <div className={`mb-2 inline-block p-2 rounded-lg ${
+                      stat.highlight ? "bg-[#FFCC00]/10 text-[#FFCC00]" : "bg-primary/10 text-primary"
+                    }`}>
+                      <stat.icon className="h-4 w-4" />
+                    </div>
+                    <h4 className="text-[10px] font-black uppercase tracking-widest text-muted-foreground leading-none mb-1">
+                      {stat.label}
+                    </h4>
+                    <p className="text-[9px] text-muted-foreground/80 font-bold leading-none">{stat.description}</p>
+                  </div>
+                  <div className={`text-2xl font-black tracking-tight ${stat.highlight ? "text-[#FFCC00]" : "text-foreground"}`}>
+                    <CountUp end={stat.number} suffix={stat.suffix} />
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Right Column (lg:col-span-7): Recruiter logo grid (Transparent, no cards, no borders, no boxes) */}
+            <div className="lg:col-span-7 grid grid-cols-3 sm:grid-cols-4 gap-6 md:gap-8 justify-items-center">
+              {companyLogos.map((logo, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: index * 0.03 }}
+                  viewport={{ once: true }}
+                  whileHover={{ scale: 1.08 }}
+                  className="w-full h-16 flex items-center justify-center p-2 transition-transform duration-300 cursor-pointer"
+                >
+                  <img
+                    src={logo}
+                    alt={`Recruiter logo ${index + 1}`}
+                    className="max-h-8 max-w-[90%] object-contain"
+                  />
+                </motion.div>
+              ))}
+            </div>
+          </div>
         </div>
 
-        {/* Top Companies */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.98 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="bg-primary/5 border border-primary/20 rounded-[3rem] p-8 md:p-16 relative overflow-hidden"
-        >
-          {/* Decorative shapes */}
-          <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-[100px] -mr-32 -mt-32" />
-          
-          <h3 className="text-3xl font-extrabold text-foreground text-center mb-16 relative z-10">
-            Top Recruiting <span className="text-primary italic">Partners</span>
-          </h3>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 relative z-10">
-            {topCompanies.map((company, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.05 }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.05 }}
-                className="bg-card/80 backdrop-blur rounded-[1.5rem] p-6 text-center shadow-md hover:shadow-xl transition-all duration-300 border border-border/50 group"
-              >
-                <div className="text-base font-bold text-muted-foreground mb-3 group-hover:text-primary transition-colors">{company.name}</div>
-                <div className="text-2xl font-black text-primary tracking-tighter">{company.package}</div>
-              </motion.div>
-            ))}
+        {/* Action CTAs */}
+        <div className="text-center pt-4">
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <Button asChild size="lg" className="rounded-full px-8 h-12 font-black uppercase tracking-widest text-[10px] shadow-lg">
+              <a href="/placements">Placement Office Portal</a>
+            </Button>
+            <Button asChild variant="outline" size="lg" className="rounded-full px-8 h-12 font-black uppercase tracking-widest text-[10px]">
+              <a href="/legacy/pdfs/FRA-2025-2026.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                <FileText className="w-3.5 h-3.5 text-primary" />
+                Download Brochure
+              </a>
+            </Button>
           </div>
-        </motion.div>
+        </div>
 
-        {/* Company Logos Carousel */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true }}
-          className="mt-24 text-center border-t border-border pt-16"
-        >
-          <div className="inline-block relative mb-12">
-            <h4 className="text-3xl font-black text-foreground relative z-10 px-4 tracking-tight">Our Placement Network</h4>
-          </div>
-          
-          <div className="relative overflow-hidden w-full flex bg-muted/30 py-12 rounded-2xl border border-border/50">
-             <div className="flex animate-marquee-fast whitespace-nowrap">
-                {[...companyLogos, ...companyLogos].map((logo, index) => (
-                   <div key={index} className="mx-12 flex flex-col items-center justify-center min-w-[150px]">
-                      <img src={logo} alt={`Partner ${index}`} className="h-14 object-contain grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300" />
-                   </div>
-                ))}
-             </div>
-          </div>
-        </motion.div>
       </div>
-
-      <style dangerouslySetInnerHTML={{__html: `
-        @keyframes marquee-fast {
-          0% { transform: translateX(0%); }
-          100% { transform: translateX(-50%); }
-        }
-        .animate-marquee-fast {
-          animation: marquee-fast 20s linear infinite;
-        }
-        .animate-marquee-fast:hover {
-          animation-play-state: paused;
-        }
-      `}} />
     </section>
   );
 }

@@ -93,7 +93,7 @@ function ErrorDialog({
         <DialogFooter>
           <a
             href={`https://vly.ai/project/${process.env.NEXT_PUBLIC_VLY_APP_ID}`}
-            target="_blank" rel="noopener noreferrer"
+            target="_blank"
           >
             <Button>
               <ExternalLink /> Open editor

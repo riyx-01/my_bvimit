@@ -12,7 +12,12 @@ export default function LoadingScreen() {
   useEffect(() => {
     // Only check load status after client-side mount to prevent hydration mismatch
     if (typeof window !== "undefined") {
-      const hasLoadedBefore = sessionStorage.getItem("bvimit_initial_load");
+      let hasLoadedBefore = null;
+      try {
+        hasLoadedBefore = sessionStorage.getItem("bvimit_initial_load");
+      } catch (e) {
+        console.warn("Storage access restricted:", e);
+      }
       const navEntry = window.performance?.getEntriesByType("navigation")[0] as any;
       const isIntendedReload = navEntry?.type === "reload";
 
@@ -28,7 +33,11 @@ export default function LoadingScreen() {
 
     // We are legitimately loading -> Lock the vault immediately for this session
     if (typeof window !== "undefined") {
-      sessionStorage.setItem("bvimit_initial_load", "true");
+      try {
+        sessionStorage.setItem("bvimit_initial_load", "true");
+      } catch (e) {
+        console.warn("Storage write restricted:", e);
+      }
     }
 
     // Simulated progress for perceived performance
@@ -57,7 +66,7 @@ export default function LoadingScreen() {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0, scale: 1.1, filter: "blur(10px)" }}
           transition={{ duration: 0.8, ease: "easeInOut" }}
-          className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-background text-foreground overflow-hidden"
+          className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-background overflow-hidden"
         >
           {/* Background subtle glow aura */}
           <motion.div
@@ -70,7 +79,7 @@ export default function LoadingScreen() {
               repeat: Infinity,
               ease: "easeInOut",
             }}
-            className="absolute w-[400px] h-[400px] bg-blue-100 rounded-full blur-[100px] pointer-events-none"
+            className="absolute w-[400px] h-[400px] bg-primary/5 dark:bg-[#FFCC00]/5 rounded-full blur-[100px] pointer-events-none"
           />
 
           <div className="relative flex flex-col items-center">
@@ -91,7 +100,7 @@ export default function LoadingScreen() {
             >
               {/* Shimmer effect overlay */}
               <motion.div
-                className="absolute inset-0 z-10 bg-white/20 w-full h-full"
+                className="absolute inset-0 z-10 bg-gradient-to-r from-transparent via-white/10 to-transparent w-full h-full"
                 animate={{
                   x: ["-100%", "200%"],
                 }}
@@ -117,7 +126,7 @@ export default function LoadingScreen() {
               transition={{ delay: 0.3 }}
               className="mt-6 flex flex-col items-center"
             >
-              <p className="text-[#002855] text-xs font-bold tracking-[0.3em] uppercase">
+              <p className="text-foreground text-xs font-black tracking-[0.3em] uppercase">
                 BVIMIT Navi Mumbai
               </p>
             </motion.div>
@@ -128,7 +137,7 @@ export default function LoadingScreen() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1 }}
-            className="absolute bottom-12 text-[10px] text-gray-300 tracking-widest uppercase"
+            className="absolute bottom-12 text-[10px] text-muted-foreground/60 tracking-widest uppercase"
           >
             Excellence in Management & IT
           </motion.div>

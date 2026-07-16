@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Send, User, GraduationCap, Building, Briefcase, Info, Phone, LayoutGrid } from "lucide-react";
+import { X, Send, User, GraduationCap, Building, Briefcase, Info, Phone, LayoutGrid, MessageSquare } from "lucide-react";
 
 interface Message {
   id: string;
@@ -80,11 +80,9 @@ export default function Chatbot() {
       >
         <div className="absolute inset-0 bg-white/20 scale-0 group-hover:scale-100 transition-transform duration-500 rounded-full" />
         {isOpen ? (
-          <X className="w-7 h-7 text-white" />
+          <X className="w-6 h-6 text-white" />
         ) : (
-          <div className="flex items-center gap-2">
-            <img src="/assets/images/bharati_logo.png" className="w-7 h-7 object-contain brightness-0 invert" alt="BVIMIT" />
-          </div>
+          <MessageSquare className="w-6 h-6 text-white group-hover:scale-110 transition-transform duration-300" />
         )}
       </motion.button>
 
@@ -123,7 +121,7 @@ export default function Chatbot() {
             </div>
 
             {/* Conversation Space */}
-            <div className="flex-1 overflow-y-auto px-6 pt-2 pb-6 space-y-6 scrollbar-none bg-primary/5">
+            <div className="flex-1 overflow-y-auto px-6 pt-2 pb-6 space-y-6 scrollbar-none bg-gradient-to-b from-primary/5 via-transparent to-transparent">
               {messages.map((msg) => (
                 <motion.div 
                   key={msg.id}
